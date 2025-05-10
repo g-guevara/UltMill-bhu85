@@ -1,4 +1,5 @@
-// app/navigation/TabNavigator.tsx
+// Modified app/navigation/TabNavigator.tsx
+
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
@@ -7,9 +8,7 @@ import { User } from '../components/Login/User';
 
 // Import screens
 import HomeScreen from '../screens/HomeScreen';
-import TestScreen from '../screens/TestScreen';
-import ReactionsScreen from '../screens/ReactionsScreen';
-import WishlistScreen from '../screens/WishlistScreen';
+
 
 // Define types
 type TabParamList = {
@@ -32,11 +31,11 @@ interface TabNavigatorProps {
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
-// Custom Tab Label Component
+// Custom Tab Label Component - Updated with green color
 const TabLabel = ({ label, focused }: { label: string; focused: boolean }) => (
   <Text style={{
     fontSize: 12,
-    color: focused ? '#4285F4' : '#888',
+    color: focused ? '#01c955' : '#888', // Changed from #4285F4 to #01c955
     marginTop: -5,
   }}>
     {label}
@@ -55,7 +54,7 @@ export default function TabNavigator({ user, onLogout }: TabNavigatorProps) {
           borderTopWidth: 1,
           borderTopColor: '#e0e0e0',
         },
-        tabBarActiveTintColor: '#4285F4',
+        tabBarActiveTintColor: '#01c955', // Changed from #4285F4 to #01c955
         tabBarInactiveTintColor: '#888',
         headerShown: false,
         tabBarHideOnKeyboard: true,
@@ -68,7 +67,7 @@ export default function TabNavigator({ user, onLogout }: TabNavigatorProps) {
             <Ionicons
               name="home"
               size={size}
-              color={focused ? '#4285F4' : '#888'}
+              color={focused ? '#01c955' : '#888'} // Changed from #4285F4 to #01c955
             />
           ),
           tabBarLabel: ({ focused }: { focused: boolean }) => (
@@ -79,56 +78,7 @@ export default function TabNavigator({ user, onLogout }: TabNavigatorProps) {
         {() => <HomeScreen user={user} onLogout={onLogout} />}
       </Tab.Screen>
 
-      <Tab.Screen
-        name="Test"
-        component={TestScreen}
-        options={{
-          tabBarIcon: ({ focused, color, size }: TabBarIconProps) => (
-            <MaterialIcons
-              name="assignment"
-              size={size}
-              color={focused ? '#4285F4' : '#888'}
-            />
-          ),
-          tabBarLabel: ({ focused }: { focused: boolean }) => (
-            <TabLabel label="Test" focused={focused} />
-          ),
-        }}
-      />
 
-      <Tab.Screen
-        name="Reactions"
-        component={ReactionsScreen}
-        options={{
-          tabBarIcon: ({ focused, color, size }: TabBarIconProps) => (
-            <MaterialCommunityIcons
-              name="molecule"
-              size={size}
-              color={focused ? '#4285F4' : '#888'}
-            />
-          ),
-          tabBarLabel: ({ focused }: { focused: boolean }) => (
-            <TabLabel label="Reactions" focused={focused} />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="Wishlist"
-        component={WishlistScreen}
-        options={{
-          tabBarIcon: ({ focused, color, size }: TabBarIconProps) => (
-            <MaterialIcons
-              name="bookmark"
-              size={size}
-              color={focused ? '#4285F4' : '#888'}
-            />
-          ),
-          tabBarLabel: ({ focused }: { focused: boolean }) => (
-            <TabLabel label="Wishlist" focused={focused} />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 }
