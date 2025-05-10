@@ -85,10 +85,10 @@ export default function HomeScreen() {
   );
 
   const handleProductPress = (product: Product) => {
-    router.push({
-      pathname: "/ProductDetailiScreen",
-      params: { productData: JSON.stringify(product) }
-    });
+router.push({
+  pathname: "/screens/ProductDetailiScreen",
+  params: { productData: JSON.stringify(product) }
+});
   };
 
   return (

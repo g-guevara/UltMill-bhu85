@@ -70,7 +70,7 @@ export default function ProductDetailScreen() {
             style={styles.backButton} 
             onPress={() => router.back()}
           >
-            <Text style={styles.backButtonText}>← Volver</Text>
+            <Text style={styles.backButtonText}>〈 back</Text>
           </TouchableOpacity>
         </View>
         
@@ -108,24 +108,24 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#fff",
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 2,
     paddingVertical: 15,
   },
   backButton: {
     padding: 8,
   },
   backButtonText: {
-    fontSize: 16,
-    color: "#007BFF",
+    fontSize: 18,
+    color: "#000",
   },
   productImage: {
     width: width,
-    height: width * 0.8,
+    height: width * 0.6,
     marginBottom: 20,
   },
   productInfo: {
