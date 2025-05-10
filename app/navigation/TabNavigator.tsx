@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Text, View, Platform, TouchableOpacity } from 'react-native';
 import { User } from '../components/Login/User';
+import { useCart } from '../utils/CartContext';
 
 // Import screens
 import HomeScreen from '../screens/HomeScreen';
@@ -46,6 +47,8 @@ const TabLabel = ({ label, focused }: { label: string; focused: boolean }) => (
 );
 
 export default function TabNavigator({ user, onLogout }: TabNavigatorProps) {
+  const { totalItems } = useCart();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -85,11 +88,34 @@ export default function TabNavigator({ user, onLogout }: TabNavigatorProps) {
         name="Cart"
         options={{
           tabBarIcon: ({ focused, color, size }: TabBarIconProps) => (
-            <Ionicons
-              name="cart"
-              size={size}
-              color={focused ? '#01c955' : '#888'}
-            />
+            <View>
+              <Ionicons
+                name="cart"
+                size={size}
+                color={focused ? '#01c955' : '#888'}
+              />
+              {totalItems > 0 && (
+                <View style={{
+                  position: 'absolute',
+                  top: -5,
+                  right: -8,
+                  backgroundColor: '#FF3B30',
+                  borderRadius: 10,
+                  width: 16,
+                  height: 16,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                  <Text style={{
+                    color: 'white',
+                    fontSize: 10,
+                    fontWeight: 'bold',
+                  }}>
+                    {totalItems > 9 ? '9+' : totalItems}
+                  </Text>
+                </View>
+              )}
+            </View>
           ),
           tabBarLabel: ({ focused }: { focused: boolean }) => (
             <TabLabel label="Cart" focused={focused} />

@@ -35,7 +35,7 @@ export default function LoginForm({ onLogin, onSwitchToSignup, apiUrl }: LoginFo
 
   // Configuración de Google OAuth
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
-    clientId: '421431845569-3gi5bflt29es9fo1ovrpc9tprmd6tj3s.apps.googleusercontent.com',
+    clientId: '785282538969-nhq7ursh8lkblr90a9rvi0qlg2ejjqmk.apps.googleusercontent.com',
   });
 
   useEffect(() => {
@@ -152,12 +152,7 @@ const handleLogin = async () => {
 
   return (
     <View style={styles.formContainer}>
-      <View style={styles.logoContainer}>
-        <Image 
-          source={require('../../assets/images/icon.png')}
-          style={styles.logo}
-        />
-      </View>
+
       <Text style={styles.title}>Sign In</Text>
       
       <TextInput

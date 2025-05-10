@@ -9,6 +9,8 @@ import {
   Dimensions
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
+import { useCart } from "../utils/CartContext";
+import { useToast } from "../utils/ToastContext";
 
 // Interfaz para el producto
 interface Product {
@@ -22,6 +24,8 @@ interface Product {
 export default function ProductDetailScreen() {
   const params = useLocalSearchParams();
   const productData = params.productData ? JSON.parse(params.productData as string) : null;
+  const { addToCart } = useCart();
+  const { showToast } = useToast();
 
   if (!productData) {
     return (
@@ -38,6 +42,12 @@ export default function ProductDetailScreen() {
   }
 
   const product: Product = productData;
+  
+  // Agregar producto al carrito
+  const handleAddToCart = () => {
+    addToCart(product);
+    showToast('Producto añadido al carrito', 'success');
+  };
   
   // Generar estrellas basadas en la calificación
   const renderStars = () => {
@@ -95,7 +105,10 @@ export default function ProductDetailScreen() {
         </View>
         
         {/* Botón Agregar a la cesta */}
-        <TouchableOpacity style={styles.addToCartButton}>
+        <TouchableOpacity 
+          style={styles.addToCartButton}
+          onPress={handleAddToCart}
+        >
           <Text style={styles.addToCartButtonText}>Agregar a la cesta</Text>
         </TouchableOpacity>
       </ScrollView>

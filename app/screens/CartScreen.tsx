@@ -1,24 +1,18 @@
-// app/screens/CartScreen.tsx
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-
-// Item interface for cart items
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image?: string;
-}
+import { useCart } from '../utils/CartContext';
+import { CartItem } from '../utils/CartContext';
 
 const CartScreen = () => {
   const router = useRouter();
-  // This would be replaced with your actual cart items from state management
-  const cartItems: CartItem[] = [];
-
-  // Calculate total price
-  const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const { 
+    cartItems, 
+    removeFromCart, 
+    increaseQuantity, 
+    decreaseQuantity, 
+    totalPrice 
+  } = useCart();
 
   // Navigate to home/shop
   const handleShopNow = () => {
@@ -29,28 +23,52 @@ const CartScreen = () => {
   const handleCheckout = () => {
     // Implement checkout logic
     console.log('Proceeding to checkout');
+    // For now just show a message
+    alert('Checkout functionality will be implemented in the future');
   };
 
   // Render a cart item
   const renderCartItem = ({ item }: { item: CartItem }) => (
     <View style={styles.cartItem}>
-      <View style={styles.productImagePlaceholder}>
-        <Text style={styles.productImageText}>🛍️</Text>
+      <View 
+        style={[
+          styles.productImagePlaceholder,
+          item.backgroundColor ? { backgroundColor: item.backgroundColor } : {}
+        ]}
+      >
+        {item.image ? (
+          <Image 
+            source={{ uri: item.image }} 
+            style={styles.productImage} 
+            resizeMode="cover"
+          />
+        ) : (
+          <Text style={styles.productImageText}>🛍️</Text>
+        )}
       </View>
       <View style={styles.itemDetails}>
         <Text style={styles.itemName}>{item.name}</Text>
         <Text style={styles.itemPrice}>${item.price.toFixed(2)}</Text>
         <View style={styles.quantityContainer}>
-          <TouchableOpacity style={styles.quantityButton}>
+          <TouchableOpacity 
+            style={styles.quantityButton}
+            onPress={() => decreaseQuantity(item.id)}
+          >
             <Text style={styles.quantityButtonText}>-</Text>
           </TouchableOpacity>
           <Text style={styles.quantityText}>{item.quantity}</Text>
-          <TouchableOpacity style={styles.quantityButton}>
+          <TouchableOpacity 
+            style={styles.quantityButton}
+            onPress={() => increaseQuantity(item.id)}
+          >
             <Text style={styles.quantityButtonText}>+</Text>
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity style={styles.removeButton}>
+      <TouchableOpacity 
+        style={styles.removeButton}
+        onPress={() => removeFromCart(item.id)}
+      >
         <Text style={styles.removeButtonText}>×</Text>
       </TouchableOpacity>
     </View>
@@ -132,6 +150,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+    overflow: 'hidden',
+  },
+  productImage: {
+    width: '100%',
+    height: '100%',
   },
   productImageText: {
     fontSize: 24,

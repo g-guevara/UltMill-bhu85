@@ -180,12 +180,7 @@ export default function SignupForm({ onSwitchToLogin, apiUrl }: SignupFormProps)
   return (
     <View style={styles.formContainer}>
       {/* Logo Container */}
-      <View style={styles.logoContainer}>
-        <Image 
-          source={require('../../assets/images/icon.png')}
-          style={styles.logo}
-        />
-      </View>
+
       
       <Text style={styles.title}>Sign Up</Text>
       
