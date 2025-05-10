@@ -55,10 +55,36 @@ export default function HomeScreen() {
 
   // Datos de ejemplo para productos
   const products: Product[] = [
-    { id: "1", name: "AirPods", price: 132.00, rating: 4.9, backgroundColor: "#e0ccff" },
-    { id: "2", name: "MacBook Air 13", price: 1100.00, rating: 5.0, backgroundColor: "#FFE4E1" },
-    { id: "3", name: "Gaming Mouse", price: 45.99, rating: 4.7, backgroundColor: "#98FB98" },
-    { id: "4", name: "iPhone 14 Pro", price: 999.00, rating: 4.8, backgroundColor: "#E6E6FA" }
+  { id: "1", name: "AirPods", price: 132.00, rating: 4.9, backgroundColor: "#e0ccff" },
+  { id: "2", name: "MacBook Air 13", price: 1100.00, rating: 5.0, backgroundColor: "#FFE4E1" },
+  { id: "3", name: "Gaming Mouse", price: 45.99, rating: 4.7, backgroundColor: "#98FB98" },
+  { id: "4", name: "iPhone 14 Pro", price: 999.00, rating: 4.8, backgroundColor: "#E6E6FA" },
+  { id: "5", name: "Smart Watch", price: 249.99, rating: 4.6, backgroundColor: "#ADD8E6" },
+  { id: "6", name: "Bluetooth Speaker", price: 79.99, rating: 4.5, backgroundColor: "#FFA07A" },
+  { id: "7", name: "Wireless Headphones", price: 159.99, rating: 4.7, backgroundColor: "#D8BFD8" },
+  { id: "8", name: "Tablet Pro", price: 599.99, rating: 4.8, backgroundColor: "#87CEFA" },
+  { id: "9", name: "4K Monitor", price: 349.99, rating: 4.5, backgroundColor: "#FAFAD2" },
+  { id: "10", name: "Mechanical Keyboard", price: 129.99, rating: 4.6, backgroundColor: "#F0E68C" },
+  { id: "11", name: "External SSD 1TB", price: 149.99, rating: 4.9, backgroundColor: "#C0C0C0" },
+  { id: "12", name: "Wireless Charger", price: 39.99, rating: 4.3, backgroundColor: "#FFB6C1" },
+  { id: "13", name: "Smartphone Stand", price: 19.99, rating: 4.2, backgroundColor: "#FFDAB9" },
+  { id: "14", name: "Noise Canceling Earbuds", price: 189.99, rating: 4.7, backgroundColor: "#AFEEEE" },
+  { id: "15", name: "Smart Home Hub", price: 99.99, rating: 4.5, backgroundColor: "#B0E0E6" },
+  { id: "16", name: "Fitness Tracker", price: 89.99, rating: 4.4, backgroundColor: "#FAF0E6" },
+  { id: "17", name: "Portable Power Bank", price: 49.99, rating: 4.6, backgroundColor: "#EEE8AA" },
+  { id: "18", name: "USB-C Hub", price: 59.99, rating: 4.3, backgroundColor: "#F5DEB3" },
+  { id: "19", name: "Webcam HD", price: 69.99, rating: 4.4, backgroundColor: "#E0FFFF" },
+  { id: "20", name: "Gaming Headset", price: 79.99, rating: 4.5, backgroundColor: "#E6E6FA" },
+  { id: "21", name: "Smart Thermostat", price: 119.99, rating: 4.7, backgroundColor: "#FFFACD" },
+  { id: "22", name: "Digital Drawing Tablet", price: 199.99, rating: 4.8, backgroundColor: "#F0FFF0" },
+  { id: "23", name: "Wireless Ergonomic Mouse", price: 59.99, rating: 4.5, backgroundColor: "#FFF0F5" },
+  { id: "24", name: "Portable Bluetooth Printer", price: 129.99, rating: 4.2, backgroundColor: "#F0FFFF" },
+  { id: "25", name: "Smartphone Gimbal", price: 89.99, rating: 4.6, backgroundColor: "#F5F5DC" },
+  { id: "26", name: "True Wireless Earbuds", price: 99.99, rating: 4.7, backgroundColor: "#E6E6FA" },
+  { id: "27", name: "Mini Projector", price: 199.99, rating: 4.3, backgroundColor: "#FFF5EE" },
+  { id: "28", name: "Smart Doorbell", price: 149.99, rating: 4.5, backgroundColor: "#F0F8FF" },
+  { id: "29", name: "Wireless Security Camera", price: 89.99, rating: 4.4, backgroundColor: "#F8F8FF" },
+  { id: "30", name: "Smart Light Bulbs (4 Pack)", price: 49.99, rating: 4.6, backgroundColor: "#FFFAF0" }
   ];
   
 
