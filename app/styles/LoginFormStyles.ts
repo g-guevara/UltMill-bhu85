@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#00c855",
     padding: 15,
     borderRadius: 8,
     alignItems: "center",
@@ -71,11 +71,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   switchButtonText: {
-    color: "#007bff",
+    color: "#000",
     fontSize: 14,
   },  
   forgotPasswordText  : {
-    color: "#007bff",
+    color: "#000",
     fontSize: 14,
     textAlign: "center",
     marginTop: 10,
